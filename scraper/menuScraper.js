@@ -1,4 +1,4 @@
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-core');
 
 function parseServingSize(servingSizeText) {
   const match = servingSizeText?.match(/([\d.]+)\s*(.*)/);
@@ -11,7 +11,7 @@ function parseServingSize(servingSizeText) {
 
 const scrapeMenu = async (locationName, locationNum) => {
 //   console.log(`Scraping menu for ${locationName} (${locationNum})...`);
-  const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'], });
+  const browser = await puppeteer.launch({ headless: true, executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || '/usr/bin/google-chrome-stable', args: ['--no-sandbox', '--disable-setuid-sandbox'], });
   const page = await browser.newPage();
 
   const baseUrl = 'https://foodpro.ucr.edu/foodpro/shortmenu.aspx';
