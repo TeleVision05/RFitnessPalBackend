@@ -11,7 +11,7 @@ function parseServingSize(servingSizeText) {
 
 const scrapeMenu = async (locationName, locationNum) => {
 //   console.log(`Scraping menu for ${locationName} (${locationNum})...`);
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'], });
   const page = await browser.newPage();
 
   const baseUrl = 'https://foodpro.ucr.edu/foodpro/shortmenu.aspx';
