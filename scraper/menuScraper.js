@@ -161,7 +161,7 @@ const scrapeMenu = async (locationName, locationNum) => {
             }
             else {
                 // Print nutrition
-                console.log(`Serving sie: ${nutrition.servingSize} ${nutrition.servingUnit}`);
+                console.log(`Serving size: ${nutrition.servingSize} ${nutrition.servingUnit}`);
             }
             Object.assign(item, {
                 calories: nutrition.calories,
